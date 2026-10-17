@@ -1,0 +1,42 @@
+# Data (not distributable; see README)
+data/
+
+# Generated outputs, checkpoints and logs
+outputs/
+logs/
+*.pth
+*.pt
+*.ckpt
+*.npy
+*.npz
+*.pkl
+*.h5
+
+# Images and medical image formats
+*.png
+*.jpg
+*.jpeg
+*.tif
+*.tiff
+*.nii
+*.nii.gz
+*.dcm
+
+# SLURM and other logs
+*.out
+*.err
+*.stdout
+*.log
+slurm-*.out
+
+# Python / Jupyter
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Editors and OS
+*.swp
+.DS_Store
+
+# Local archive of old scripts (kept on disk, not published)
+archive/

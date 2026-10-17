@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH --job-name=uivisa_seeds
+#SBATCH --partition=YOUR_PARTITION
+#SBATCH --gres=gpu:1
+#SBATCH --time=1:00:00
+#SBATCH --array=0-4
+#SBATCH --output=logs/%x_%A_%a.out
+#
+# Example job script. Submit from the repository root:
+#   mkdir -p logs && sbatch slurm/generate_seeds.sub
+# Each array task runs one fold (0-4). Edit the partition, environment
+# and data paths below for your cluster.
+
+module load anaconda3
+source activate uivisa
+
+IMAGE_DIR=data/raw
+MASK_DIR=data/gt
+FOLD=${SLURM_ARRAY_TASK_ID}
+
+python scripts/generate_seeds.py --fold $FOLD --split val \
+    --image-dir $IMAGE_DIR --mask-dir $MASK_DIR
+python scripts/generate_seeds.py --fold $FOLD --split test \
+    --image-dir $IMAGE_DIR --mask-dir $MASK_DIR

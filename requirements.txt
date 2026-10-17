@@ -1,0 +1,10 @@
+# Versions installed in the environment the code was run in (Python 3.12.3).
+# Install a torch build that matches your CUDA version if needed.
+torch==2.3.0
+torchvision==0.18.0
+numpy==1.26.4
+scipy==1.17.1
+pandas==2.2.1
+scikit-learn==1.4.2
+scikit-image==0.24.0
+matplotlib==3.8.4
